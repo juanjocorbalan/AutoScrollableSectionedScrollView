@@ -11,6 +11,8 @@
 		DFA6E6602C00879A0040A377 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E65F2C00879A0040A377 /* ContentView.swift */; };
 		DFA6E6622C00879B0040A377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFA6E6612C00879B0040A377 /* Assets.xcassets */; };
 		DFA6E6652C00879B0040A377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFA6E6642C00879B0040A377 /* Preview Assets.xcassets */; };
+		DFA6E66C2C0089CE0040A377 /* SectionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E66B2C0089CE0040A377 /* SectionIndex.swift */; };
+		DFA6E66E2C008A440040A377 /* IndexListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E66D2C008A440040A377 /* IndexListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		DFA6E65F2C00879A0040A377 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DFA6E6612C00879B0040A377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFA6E6642C00879B0040A377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DFA6E66B2C0089CE0040A377 /* SectionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndex.swift; sourceTree = "<group>"; };
+		DFA6E66D2C008A440040A377 /* IndexListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				DFA6E65D2C00879A0040A377 /* AutoScrollableSectionedScrollViewApp.swift */,
 				DFA6E65F2C00879A0040A377 /* ContentView.swift */,
+				DFA6E66D2C008A440040A377 /* IndexListView.swift */,
+				DFA6E66B2C0089CE0040A377 /* SectionIndex.swift */,
 				DFA6E6612C00879B0040A377 /* Assets.xcassets */,
 				DFA6E6632C00879B0040A377 /* Preview Content */,
 			);
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFA6E6602C00879A0040A377 /* ContentView.swift in Sources */,
+				DFA6E66E2C008A440040A377 /* IndexListView.swift in Sources */,
 				DFA6E65E2C00879A0040A377 /* AutoScrollableSectionedScrollViewApp.swift in Sources */,
+				DFA6E66C2C0089CE0040A377 /* SectionIndex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +288,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -287,6 +296,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanjocorbalan.AutoScrollableSectionedScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -309,6 +322,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +330,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.juanjocorbalan.AutoScrollableSectionedScrollView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
