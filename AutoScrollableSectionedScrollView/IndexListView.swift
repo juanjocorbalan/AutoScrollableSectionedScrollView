@@ -13,6 +13,7 @@ struct IndexListView: View {
     @Binding var animating: Bool
     var proxy: ScrollViewProxy
     @Namespace private var animation
+    @Environment(\.colorScheme) private var scheme
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -20,13 +21,15 @@ struct IndexListView: View {
                 ForEach(items, id: \.rawValue) { item in
                     Label(item.rawValue.capitalized, systemImage: item.image)
                         .symbolVariant(selected == item ? .none : .fill)
-                        .foregroundColor(selected == item ? .white : .black)
+                        .foregroundColor(selected == item 
+                                         ? scheme == .dark ? .black : .white
+                                         : scheme == .dark ? .white : .black)
                         .padding(.horizontal, 20)
                         .padding(.vertical, 8)
                         .background {
                             if selected == item {
                                 Capsule()
-                                    .foregroundStyle(.black)
+                                    .foregroundStyle(scheme == .dark ? .white : .black)
                                     .matchedGeometryEffect(id: "ItemAnimation", in: animation)
                             }
                         }

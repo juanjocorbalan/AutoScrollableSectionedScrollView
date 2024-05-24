@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum SectionIndex: String, CaseIterable {
+enum SectionIndex: String, CaseIterable, Identifiable {
     case dogs
     case cats
     case birds
@@ -54,7 +54,7 @@ enum SectionIndex: String, CaseIterable {
         }
     }
 
-    var ID: String {
+    var id: String {
         return self.rawValue
     }
 

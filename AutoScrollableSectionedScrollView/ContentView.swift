@@ -15,19 +15,19 @@ struct ContentView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView(.vertical) {
-                ForEach(sections, id: \.rawValue) { type in
+                ForEach(sections) { type in
                     Section {
                         LazyVStack {
                             ForEach(1...5, id: \.self) { _ in
                                 RoundedRectangle(cornerRadius: 12)
-                                    .fill(type.color)
+                                    .fill(type.color.gradient)
                                     .frame(height: 75)
                             }
                         }
                         .updateOffset(for: type, in: "ScrollViewContent")
                     } header: {
                         Text(type.rawValue.capitalized)
-                            .font(.title)
+                            .font(.title.bold())
                             .foregroundColor(type.color)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
@@ -36,24 +36,24 @@ struct ContentView: View {
                 }
             }
             .onPreferenceChange(BottomOffsetKey.self) { section in
-                guard !animating, selected != section.type else { return }
+                guard !animating else { return }
                 withAnimation(.easeInOut(duration: 0.3)) {
                     selected = section.type
                 }
             }
-            .onChange(of: selected) { _, newValue in
+            .onChange(of: selected) { oldVaule, newValue in
                 withAnimation(.easeInOut(duration: 0.3)) {
                     proxy.scrollTo(newValue.altID, anchor: .center)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                        animating = false
-                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    animating = false
                 }
             }
             .coordinateSpace(name: "ScrollViewContent")
-            .safeAreaInset(edge: .top, content: {
+            .safeAreaInset(edge: .top) {
                 IndexListView(items: sections, selected: $selected, animating: $animating, proxy: proxy)
                     .background(.thinMaterial)
-            })
+            }
         }
         .navigationTitle("Animals")
         .toolbarTitleDisplayMode(.inline)
