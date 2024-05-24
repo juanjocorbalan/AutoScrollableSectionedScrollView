@@ -8,40 +8,61 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let sections = SectionIndex.allCases
     @State private var selected: SectionIndex = .dogs
+    @State private var animating: Bool = false
 
     var body: some View {
-        NavigationStack {
-            ScrollViewReader { proxy in
-                ScrollView(.vertical) {
-                    ForEach(SectionIndex.allCases, id: \.rawValue) { type in
+        ScrollViewReader { proxy in
+            ScrollView(.vertical) {
+                ForEach(sections, id: \.rawValue) { type in
+                    Section {
                         LazyVStack {
-                            Text(type.rawValue.capitalized)
-                                .font(.title)
-                                .foregroundColor(type.color)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-
                             ForEach(1...5, id: \.self) { _ in
                                 RoundedRectangle(cornerRadius: 12)
                                     .fill(type.color)
                                     .frame(height: 75)
                             }
                         }
-                        .padding([.horizontal, .bottom])
-                        .id(type)
+                        .updateOffset(for: type, in: "ScrollViewContent")
+                    } header: {
+                        Text(type.rawValue.capitalized)
+                            .font(.title)
+                            .foregroundColor(type.color)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .padding([.horizontal, .bottom])
+                    .id(type)
+                }
+            }
+            .onPreferenceChange(BottomOffsetKey.self) { section in
+                guard !animating, selected != section.type else { return }
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    selected = section.type
+                }
+            }
+            .onChange(of: selected) { _, newValue in
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    proxy.scrollTo(newValue.altID, anchor: .center)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        animating = false
                     }
                 }
-                .coordinateSpace(name: "ScrollViewContent")
-                .safeAreaInset(edge: .top, content: {
-                    IndexListView(items: SectionIndex.allCases, selected: $selected, proxy: proxy)
-                })
             }
-            .navigationTitle("Animals")
-            .toolbarTitleDisplayMode(.inline)
+            .coordinateSpace(name: "ScrollViewContent")
+            .safeAreaInset(edge: .top, content: {
+                IndexListView(items: sections, selected: $selected, animating: $animating, proxy: proxy)
+                    .background(.thinMaterial)
+            })
         }
+        .navigationTitle("Animals")
+        .toolbarTitleDisplayMode(.inline)
+        .toolbarBackground(.hidden, for: .navigationBar)
     }
 }
 
 #Preview {
-    ContentView()
+    NavigationStack {
+        ContentView()
+    }
 }

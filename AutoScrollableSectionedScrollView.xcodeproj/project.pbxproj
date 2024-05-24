@@ -13,6 +13,8 @@
 		DFA6E6652C00879B0040A377 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFA6E6642C00879B0040A377 /* Preview Assets.xcassets */; };
 		DFA6E66C2C0089CE0040A377 /* SectionIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E66B2C0089CE0040A377 /* SectionIndex.swift */; };
 		DFA6E66E2C008A440040A377 /* IndexListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E66D2C008A440040A377 /* IndexListView.swift */; };
+		DFA6E6722C008E950040A377 /* BottomOffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E6712C008E950040A377 /* BottomOffsetKey.swift */; };
+		DFA6E6742C008F200040A377 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA6E6732C008F200040A377 /* View+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		DFA6E6642C00879B0040A377 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DFA6E66B2C0089CE0040A377 /* SectionIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionIndex.swift; sourceTree = "<group>"; };
 		DFA6E66D2C008A440040A377 /* IndexListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexListView.swift; sourceTree = "<group>"; };
+		DFA6E6712C008E950040A377 /* BottomOffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomOffsetKey.swift; sourceTree = "<group>"; };
+		DFA6E6732C008F200040A377 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				DFA6E65F2C00879A0040A377 /* ContentView.swift */,
 				DFA6E66D2C008A440040A377 /* IndexListView.swift */,
 				DFA6E66B2C0089CE0040A377 /* SectionIndex.swift */,
+				DFA6E6712C008E950040A377 /* BottomOffsetKey.swift */,
+				DFA6E6732C008F200040A377 /* View+Extensions.swift */,
 				DFA6E6612C00879B0040A377 /* Assets.xcassets */,
 				DFA6E6632C00879B0040A377 /* Preview Content */,
 			);
@@ -144,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFA6E6602C00879A0040A377 /* ContentView.swift in Sources */,
+				DFA6E6722C008E950040A377 /* BottomOffsetKey.swift in Sources */,
 				DFA6E66E2C008A440040A377 /* IndexListView.swift in Sources */,
 				DFA6E65E2C00879A0040A377 /* AutoScrollableSectionedScrollViewApp.swift in Sources */,
+				DFA6E6742C008F200040A377 /* View+Extensions.swift in Sources */,
 				DFA6E66C2C0089CE0040A377 /* SectionIndex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

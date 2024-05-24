@@ -10,6 +10,7 @@ import SwiftUI
 struct IndexListView: View {
     let items: [SectionIndex]
     @Binding var selected: SectionIndex
+    @Binding var animating: Bool
     var proxy: ScrollViewProxy
     @Namespace private var animation
 
@@ -33,6 +34,7 @@ struct IndexListView: View {
                         .id(item.altID)
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 0.3)) {
+                                animating = true
                                 selected = item
                                 proxy.scrollTo(item, anchor: .top)
                             }
@@ -47,6 +49,6 @@ struct IndexListView: View {
 
 #Preview {
     ScrollViewReader { proxy in
-        IndexListView(items: SectionIndex.allCases, selected: .constant(.dogs), proxy: proxy)
+        IndexListView(items: SectionIndex.allCases, selected: .constant(.dogs), animating: .constant(false), proxy: proxy)
     }
 }
